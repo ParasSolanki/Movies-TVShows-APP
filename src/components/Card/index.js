@@ -22,7 +22,6 @@ import {
   FeatureDate,
 } from "./styles/Card";
 import * as PATH from "../../constants/path";
-import Player from "../player";
 
 export default function Card({ category, children, ...restProps }) {
   const [showFeature, setShowFeature] = useState(false);
