@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <HeaderContainer />
-      Hello from Home
+      <div></div>
     </div>
   );
 }
