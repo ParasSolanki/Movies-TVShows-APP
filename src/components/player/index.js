@@ -31,12 +31,17 @@ Player.Video = function PlayerVideo({ ...restProps }) {
           }}
         >
           <Inner>
-            <iframe
-              title="Youtube Video"
-              width="420"
-              height="500"
-              src={`https://www.youtube.com/embed/tgbNymZ7vqY`}
-            ></iframe>
+            {srcKey !== undefined ? (
+              <iframe
+                title="Youtube Video"
+                width="420"
+                height="500"
+                src={`https://www.youtube.com/embed/${srcKey[0]?.key}?autoplay=1`}
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            ) : null}
+
             <Close />
           </Inner>
         </Overlay>,

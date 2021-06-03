@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link as ReachRouter } from "react-router-dom";
+import { Link as ReachRouterLink } from "react-router-dom";
 import {
   Container,
   Nav,
@@ -12,7 +12,7 @@ import {
   HeroText,
   HeroBackground,
   HeroTitle,
-  HeroButton,
+  HeroLink,
 } from "./styles/Header";
 import { FaSearch } from "react-icons/fa";
 
@@ -37,7 +37,7 @@ Header.Group = function HeaderGroup({ children, ...restProps }) {
 Header.Logo = function HeaderLogo({ to, children, ...restProps }) {
   return (
     <Logo {...restProps}>
-      <ReachRouter to={to}>{children}</ReachRouter>
+      <ReachRouterLink to={to}>{children}</ReachRouterLink>
     </Logo>
   );
 };
@@ -85,8 +85,12 @@ Header.Hero = function HeaderHero({ children, ...restProps }) {
   return <HeroContainer {...restProps}>{children}</HeroContainer>;
 };
 
-Header.HeroButton = function HeaderHeroButton({ children, ...restProps }) {
-  return <HeroButton {...restProps}>{children}</HeroButton>;
+Header.HeroLink = function HeaderHeroLink({ to, children, ...restProps }) {
+  return (
+    <HeroLink to={to} {...restProps}>
+      {children}
+    </HeroLink>
+  );
 };
 
 Header.HeroTitle = function HeaderHeroTitle({ children, ...restProps }) {

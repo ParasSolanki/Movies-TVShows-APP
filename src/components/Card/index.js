@@ -119,13 +119,8 @@ Card.Feature = function CardFeature({ children, ...restProps }) {
           <FeatureLink
             to={
               category === "movies"
-                ? `browse/movie/${encodeURIComponent(
-                    itemFeature.original_title
-                  ).replace(/%20/g, "+")}`
-                : `browse/tv/${encodeURIComponent(itemFeature.name).replace(
-                    /%20/g,
-                    "+"
-                  )}`
+                ? `browse/movie/${itemFeature.id}`
+                : `browse/tv/${itemFeature.id}`
             }
           >
             View Details

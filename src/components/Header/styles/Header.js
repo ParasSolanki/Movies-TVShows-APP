@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link as ReachRouterLink } from "react-router-dom";
 
 export const Container = styled.header`
   width: 100%;
@@ -112,7 +113,7 @@ export const HeroText = styled.p`
   font-family: inherit;
 `;
 
-export const HeroButton = styled.button`
+export const HeroLink = styled(ReachRouterLink)`
   padding: 0.5rem 2rem;
   font-size: 0.95rem;
   font-family: inherit;
