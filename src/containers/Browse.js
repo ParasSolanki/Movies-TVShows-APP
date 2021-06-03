@@ -5,6 +5,7 @@ import LoadingContainer from "../containers/loading";
 import { Player } from "../components";
 
 import * as PATH from "../constants/path";
+import * as ROUTES from "../constants/routes";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("tvShows");
@@ -34,7 +35,6 @@ export default function BrowseContainer({ slides }) {
 
     if (slideRows.length > 0 && searchTerm.length > 2 && results.length > 0) {
       setSlideRows(results);
-      console.log(results);
     } else {
       setSlideRows(slides[category]);
     }
@@ -48,7 +48,7 @@ export default function BrowseContainer({ slides }) {
           <Header src="joker">
             <Header.Nav>
               <Header.Group>
-                <Header.Logo to="/">Movie App</Header.Logo>
+                <Header.Logo to={ROUTES.HOME}>Movie App</Header.Logo>
                 <Header.TextLink
                   to="/movies"
                   active={category === "movies" ? true : false}
@@ -81,7 +81,9 @@ export default function BrowseContainer({ slides }) {
                 the guise he projects in a futile attempt to feel like he's part
                 of the world around him.
               </Header.HeroText>
-              <Header.HeroButton>View Details</Header.HeroButton>
+              <Header.HeroLink to="/browse/movie/475557">
+                View Details
+              </Header.HeroLink>
             </Header.Hero>
           </Header>
           <Card.Group>
