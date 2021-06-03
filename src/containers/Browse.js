@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Header, Card } from "../components";
+import Fuse from "fuse.js";
 import LoadingContainer from "../containers/loading";
+import { Player } from "../components";
 
 import * as PATH from "../constants/path";
-import Player from "../components/player";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("tvShows");
@@ -14,12 +15,30 @@ export default function BrowseContainer({ slides }) {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1500);
   }, []);
 
   useEffect(() => {
     setSlideRows(slides[category]);
   }, [slides, category]);
+
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, {
+      keys: [
+        "data.results.overview",
+        "data.results.original_title",
+        "data.results.name",
+      ],
+    });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+
+    if (slideRows.length > 0 && searchTerm.length > 2 && results.length > 0) {
+      setSlideRows(results);
+      console.log(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [searchTerm]);
 
   return (
     <>
@@ -54,6 +73,7 @@ export default function BrowseContainer({ slides }) {
             </Header.Nav>
             <Header.Hero src="joker">
               <Header.HeroTitle>View Joker Now</Header.HeroTitle>
+
               <Header.HeroText>
                 Forever alone in a crowd, failed comedian Arthur Fleck seeks
                 connection as he walks the streets of Gotham City. Arthur wears
@@ -69,6 +89,7 @@ export default function BrowseContainer({ slides }) {
               <Card key={slideItem.title} category={slideItem.category}>
                 <div className="container">
                   <Card.Title>{slideItem.title}</Card.Title>
+
                   <Card.Entities>
                     {slideItem !== undefined &&
                       slideItem?.data[0]?.results?.map((item) => (
@@ -77,7 +98,8 @@ export default function BrowseContainer({ slides }) {
                             src={`${PATH.BASE_POSTER_PATH}${
                               item.backdrop_path || item.poster_path
                             }`}
-                          ></Card.Image>
+                          />
+
                           <Card.Meta>
                             <Card.SubTitle>
                               {item.original_title || item.name}
