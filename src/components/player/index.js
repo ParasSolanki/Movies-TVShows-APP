@@ -22,7 +22,6 @@ export default function Player({ children, ...restProps }) {
 Player.Video = function PlayerVideo({ ...restProps }) {
   const { showPlayer, setShowPlayer, src } = useContext(PlayerContext);
   const srcKey = src?.results?.filter((item) => item.type === "Trailer");
-  console.log(srcKey);
   return showPlayer
     ? ReactDOM.createPortal(
         <Overlay

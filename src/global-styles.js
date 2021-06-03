@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
 
   *, *::after, *::before{
     box-sizing: border-box;
+    font-family: inherit;
   }
 
   html, :root{
@@ -32,6 +33,7 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     line-height: 1.6;
     background-color: var(--bg);
+    color: var(--clr-white);
     font-size: 1rem;
     font-family: 'Nunito', sans-serif;
   }
@@ -46,78 +48,60 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  .section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  .container{
-    max-width: var(--break-point-xl);
+  .container {
+    max-width: 79.125rem;
     width:100%;
     margin:0 auto;
     padding: 0 1rem;
-    
-  }
-  @media (min-width: var(--break-point-sm)){
-    .container {
-      max-width: var(--break-point-sm);
-    }
-  }
-  @media (min-width: var(--break-point-md)){
-    .container {
-      max-width: var(--break-point-md);
-    }
-  }
-  @media (min-width: var(--break-point-lg)){
-    .container {
-      max-width: var(--break-point-lg);
-    }
-  }
-  @media (min-width: var(--break-point-xl)){
-    .container {
-      max-width: var(--break-point-xl);
-    }
-  }
-  @media (min-width: var(--break-point-xxl)){
-    .container {
-      max-width: var(--break-point-xxl);
-    }
-  }
-  @media (min-width: var(--break-point-xxxl)){
-    .container {
-      max-width: var(--break-point-xxxl);
-    }
-  }
 
+    @media (min-width: 35.75rem) {
+      max-width: 35.75rem;
+    }
+    @media (min-width: 48rem) {
+      max-width: 48rem;
+    }
+    @media (min-width: 62rem) {
+      max-width: 62rem; 
+    }
+    @media (min-width: 79.125rem) {
+      max-width: 79.125rem;
+    }
+    @media (min-width: 87.5rem) {
+      max-width: 87.5rem;
+    }
+    @media (min-width: 96rem) {
+      max-width: 96rem;
+    }
+  }
+  
   .flex{
     display: flex;
     justify-content: space-between;
     align-items:center;
     flex-wrap: wrap;
   }
-  .mb-8{
-    margin-bottom: 2rem;
-  }
-  .mb-2{
-    margin-bottom: 0.5rem;
-  }
-  .text-3xl {
-    font-size: 1.875rem;
-  }
-  .text-base {
-    font-size: 1rem;
-  }
-  .text-gray-500{
-    color: var(--clr-gray-500);
-  }
-  .font-normal{
-    font-weight: normal;
-  }
-  .text-gray-800{
-    color: var(--clr-gray-800);
-  }
-  .text-blue-950{
-    color: var(--clr-blue-950);
-  }
   
+  .card-img{
+    width: 13rem;
+    height: 10rem;
+    object-fit: cover;
+
+    @media (min-width: 35.75rem) {
+      width: 15.5rem;
+    }
+
+    @media (min-width: 48rem) {
+      width: 17rem;
+    }
+  }
+
+  ::selection {
+    background: rgba(248, 0 , 0, .8);
+    color: var(--clr-white)
+  }
+  ::-moz-selection{
+    background: rgba(248, 0 , 0, .8);
+    color: var(--clr-white)
+
+  }
 `;

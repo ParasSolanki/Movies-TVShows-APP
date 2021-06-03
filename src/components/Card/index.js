@@ -1,12 +1,13 @@
 import { useState, useContext } from "react";
 import { FeatureContext } from "../../context/featureContext";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import {
   Container,
   Group,
   Title,
   Entities,
   Item,
-  Image,
   Meta,
   SubTitle,
   Text,
@@ -16,9 +17,8 @@ import {
   FeatureRow,
   FeatureColumn,
   FeatureImage,
-  FeatureBackground,
   FeatureClose,
-  FeatureButton,
+  FeatureLink,
   FeatureDate,
 } from "./styles/Card";
 import * as PATH from "../../constants/path";
@@ -69,8 +69,15 @@ Card.Item = function CardItem({ item, children, ...restProps }) {
   );
 };
 
-Card.Image = function CardImage({ children, ...restProps }) {
-  return <Image {...restProps}>{children}</Image>;
+Card.Image = function CardImage({ src, ...restProps }) {
+  return (
+    <LazyLoadImage
+      className="card-img"
+      src={src}
+      {...restProps}
+      effect="blur"
+    />
+  );
 };
 
 Card.Meta = function CardMeta({ children, ...restProps }) {
@@ -86,7 +93,7 @@ Card.Text = function CardText({ children, ...restProps }) {
 };
 
 Card.Feature = function CardFeature({ children, ...restProps }) {
-  const { showFeature, setShowFeature, itemFeature } =
+  const { showFeature, setShowFeature, itemFeature, category } =
     useContext(FeatureContext);
   return showFeature ? (
     <Feature {...restProps}>
@@ -109,19 +116,28 @@ Card.Feature = function CardFeature({ children, ...restProps }) {
             )}`}
           </FeatureDate>
 
-          <FeatureButton bg="white" color="black">
+          <FeatureLink
+            to={
+              category === "movies"
+                ? `browse/movie/${encodeURIComponent(
+                    itemFeature.original_title
+                  ).replace(/%20/g, "+")}`
+                : `browse/tv/${encodeURIComponent(itemFeature.name).replace(
+                    /%20/g,
+                    "+"
+                  )}`
+            }
+          >
             View Details
-          </FeatureButton>
+          </FeatureLink>
           {children}
         </FeatureColumn>
         <FeatureColumn>
-          <FeatureBackground>
-            <FeatureImage
-              src={`${PATH.BASE_POSTER_PATH}${
-                itemFeature.backdrop_path || itemFeature.poster_path
-              }`}
-            />
-          </FeatureBackground>
+          <FeatureImage
+            src={`${PATH.BASE_POSTER_PATH}${
+              itemFeature.backdrop_path || itemFeature.poster_path
+            }`}
+          />
         </FeatureColumn>
       </FeatureRow>
     </Feature>

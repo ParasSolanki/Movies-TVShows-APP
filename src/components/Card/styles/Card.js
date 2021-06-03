@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 
 export const Container = styled.section`
@@ -97,19 +98,6 @@ export const Item = styled.div`
     }
   }
 `;
-export const Image = styled.img`
-  width: 13rem;
-  height: 100%;
-  object-fit: cover;
-
-  @media (min-width: 35.75rem) {
-    width: 15.5rem;
-  }
-
-  @media (min-width: 48rem) {
-    width: 17rem;
-  }
-`;
 
 export const SubTitle = styled.h3`
   color: var(--clr-white);
@@ -173,7 +161,7 @@ export const FeatureColumn = styled.div`
 export const FeatureTitle = styled.h3`
   color: var(--clr-white);
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.56rem;
   line-height: 1;
   margin-bottom: 0.5rem;
 
@@ -200,16 +188,6 @@ export const FeatureImage = styled.img`
     to right,
     rgba(17, 17, 17, 0.9),
     rgba(17, 17, 17, 0.7)
-  );
-`;
-
-export const FeatureBackground = styled.div`
-  width: inherit;
-  height: 17rem;
-  background: linear-gradient(
-    to right,
-    rgba(17, 17, 17, 0.8) 10%,
-    rgba(17, 17, 17, 0)
   );
 `;
 
@@ -247,17 +225,16 @@ export const FeatureClose = styled.div`
   }
 `;
 
-export const FeatureButton = styled.button`
+export const FeatureLink = styled(Link)`
+  display: inline-block;
   padding: 0.3rem 1rem;
 
   font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
 
-  background-color: ${({ bg }) =>
-    bg === "primary" ? "var(--clr-primary)" : "var(--clr-white)"};
-  color: ${({ color }) =>
-    color === "white" ? "var(--clr-white)" : "var(--clr-black)"};
+  background-color: var(--clr-white);
+  color: var(--clr-black);
 
   margin-bottom: 1rem;
   margin-right: 0.8rem;
@@ -268,10 +245,8 @@ export const FeatureButton = styled.button`
   transition: background-color 200ms ease, color 150ms ease;
 
   &:hover {
-    background-color: ${({ bg }) =>
-      bg === "primary" ? "var(--clr-white)" : "var(--clr-primary)"};
-    color: ${({ color }) =>
-      color === "white" ? "var(--clr-black)" : "var(--clr-white)"};
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
   }
 `;
 

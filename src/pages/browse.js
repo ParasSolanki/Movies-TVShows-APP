@@ -6,7 +6,6 @@ import selectionFilter from "../utils/selection-filter";
 export default function Browse() {
   const { tvShows } = useContent(tvShowsURLs, "tvShows");
   const { movies } = useContent(movieURLs, "movies");
-
   const slides = selectionFilter({ movies, tvShows });
 
   return <BrowseContainer slides={slides} />;

@@ -36,7 +36,7 @@ export const Group = styled.div`
 export const Link = styled.a`
   font-family: inherit;
   font-size: 0.8rem;
-  font-weight: ${({ active }) => (active === true ? "700" : "normal")};
+  font-weight: ${({ active }) => (active === true ? "bold" : "normal")};
   color: ${({ active }) =>
     active === true ? `var(--clr-primary)` : `var(--clr-white)`};
 `;
@@ -51,18 +51,20 @@ export const Search = styled.div`
 export const SearchInput = styled.input`
   padding: 0.5rem;
   background-color: transparent;
-  color: white;
+  color: var(--clr-white);
   width: ${({ activeSearch }) => (activeSearch === true ? "12.3rem" : "0")};
   opacity: ${({ activeSearch }) => (activeSearch === true ? "1" : "0")};
   margin-left: ${({ activeSearch }) => (activeSearch === true ? ".3rem" : "0")};
   font-family: inherit;
-  border: 1px solid gray;
+  border: 1px solid rgba(225, 225, 225, 0.9);
   border-radius: 0.3rem;
+  font-size: 0.85rem;
   outline: none;
   transition: width 300ms ease-in-out, opacity 300ms ease;
 
-  &:placeholder {
+  &::placeholder {
     font-family: inherit;
+    color: rgba(225, 225, 225, 0.9);
   }
   &:focus-within,
   &:focus {

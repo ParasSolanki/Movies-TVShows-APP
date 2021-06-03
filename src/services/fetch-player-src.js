@@ -1,4 +1,3 @@
-//https:api.themoviedb.org/3/movie/
 export default async function fetchPlayerSrc(id, category) {
   let BASE_PATH = "";
   if (category === "movies") {
