@@ -101,11 +101,13 @@ export const Item = styled.div`
 
 export const SubTitle = styled.h3`
   color: var(--clr-white);
-  font-size: 0.9rem;
+
+  font-family: inherit;
+  font-size: 0.97rem;
+
   line-height: 1.3;
 
   margin-bottom: 0.4rem;
-  font-family: inherit;
 
   @media (min-width: 48rem) {
     font-size: 1rem;
@@ -133,31 +135,31 @@ export const Feature = styled.div`
   width: 100%;
   margin-bottom: 1rem;
 `;
+
+export const FeatureColumn = styled.div`
+  flex: 0 0 100%;
+
+  &:first-child {
+    margin-bottom: 0.8rem;
+  }
+
+  @media (min-width: 48rem) {
+    flex: 0 0 50%;
+  }
+`;
+
 export const FeatureRow = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
   position: relative;
+
   @media (min-width: 48rem) {
     flex-direction: row;
   }
 `;
 
-export const FeatureColumn = styled.div`
-  flex: 0 0 100%;
-
-  &:first-of-type {
-    margin-bottom: 0.8rem;
-  }
-
-  @media (min-width: 48rem) {
-    flex: 0 0 50%;
-    &:first-of-type {
-      margin-right: 0.8rem;
-    }
-  }
-`;
 export const FeatureTitle = styled.h3`
   color: var(--clr-white);
   font-family: inherit;
@@ -173,7 +175,7 @@ export const FeatureTitle = styled.h3`
 export const FeatureSubTitle = styled.p`
   color: var(--clr-white);
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.94rem;
 
   @media (min-width: 48rem) {
     font-size: 1rem;

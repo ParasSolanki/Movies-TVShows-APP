@@ -16,11 +16,11 @@ import {
 } from "./styles/Header";
 import { FaSearch } from "react-icons/fa";
 
-export default function Header({ src, children, ...restProps }) {
+export default function Header({ src, height, children, ...restProps }) {
   return (
-    <Container {...restProps}>
-      <HeroBackground src={`images/misc/${src}.jpg`}>
-        <div className="container">{children}</div>
+    <Container height={height} {...restProps}>
+      <HeroBackground src={`images/misc/${src}.jpg`} height={height}>
+        <div className="container-fluid">{children}</div>
       </HeroBackground>
     </Container>
   );

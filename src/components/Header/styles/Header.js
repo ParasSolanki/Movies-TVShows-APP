@@ -4,10 +4,14 @@ import { Link as ReachRouterLink } from "react-router-dom";
 export const Container = styled.header`
   width: 100%;
   position: relative;
-  height: 45rem;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 48rem) {
+    height: ${({ height }) => (height ? height : "100vh")};
+  }
 `;
 
 export const Nav = styled.nav`
@@ -25,6 +29,12 @@ export const Nav = styled.nav`
 export const Logo = styled.div`
   font-size: 1.3rem;
   font-weight: 600;
+
+  &:focus,
+  &:focus-within {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 2px;
+  }
 `;
 export const Group = styled.div`
   max-width: 15rem;
@@ -85,7 +95,7 @@ export const HeroContainer = styled.div`
 
 export const HeroBackground = styled.div`
   width: 100%;
-  height: inherit;
+  height: 100vh;
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.35),
@@ -93,6 +103,10 @@ export const HeroBackground = styled.div`
       rgba(0, 0, 0, 0.35)
     ),
     url(${({ src }) => (src ? src : null)}) top left / cover no-repeat;
+
+  @media (min-width: 48rem) {
+    height: ${({ height }) => (height ? height : "100vh")};
+  }
 `;
 export const HeroTitle = styled.h3`
   font-size: 2rem;

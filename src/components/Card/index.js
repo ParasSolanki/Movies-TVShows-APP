@@ -54,10 +54,11 @@ Card.Entities = function CardEntities({ children, ...restProps }) {
   return <Entities {...restProps}>{children}</Entities>;
 };
 
-Card.Item = function CardItem({ item, children, ...restProps }) {
+Card.Item = function CardItem({ title, item, children, ...restProps }) {
   const { setShowFeature, setItemFeature } = useContext(FeatureContext);
   return (
     <Item
+      title={title}
       onClick={() => {
         setShowFeature(true);
         setItemFeature(item);

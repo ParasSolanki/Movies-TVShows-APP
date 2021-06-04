@@ -4,13 +4,15 @@ import ReactDOM from "react-dom";
 import { FeatureContext } from "../../context/featureContext";
 
 import usePlayer from "../../hooks/use-player";
+import playerFilter from "../../utils/player-filter";
 
 export const PlayerContext = createContext();
 
 export default function Player({ children, ...restProps }) {
   const [showPlayer, setShowPlayer] = useState(false);
   const { itemFeature, category } = useContext(FeatureContext);
-  const src = usePlayer(itemFeature.id, category);
+  const { results } = usePlayer(itemFeature.id, category);
+  const src = playerFilter({ results });
 
   return (
     <PlayerContext.Provider value={{ src, showPlayer, setShowPlayer }}>
@@ -21,7 +23,6 @@ export default function Player({ children, ...restProps }) {
 
 Player.Video = function PlayerVideo({ ...restProps }) {
   const { showPlayer, setShowPlayer, src } = useContext(PlayerContext);
-  const srcKey = src?.results?.filter((item) => item.type === "Trailer");
   return showPlayer
     ? ReactDOM.createPortal(
         <Overlay
@@ -31,12 +32,12 @@ Player.Video = function PlayerVideo({ ...restProps }) {
           }}
         >
           <Inner>
-            {srcKey !== undefined ? (
+            {src !== undefined ? (
               <iframe
                 title="Youtube Video"
                 width="420"
                 height="500"
-                src={`https://www.youtube.com/embed/${srcKey[0]?.key}?autoplay=1`}
+                src={`https://www.youtube.com/embed/${src[0]?.key}?autoplay=1`}
                 frameBorder="0"
                 allowFullScreen
               ></iframe>
