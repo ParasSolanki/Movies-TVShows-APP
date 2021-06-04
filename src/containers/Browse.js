@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import { Header, Card } from "../components";
+import React, { useState, useEffect, useRef } from "react";
+import { Header, Card, Player } from "../components";
 import Fuse from "fuse.js";
 import LoadingContainer from "../containers/loading";
-import { Player } from "../components";
 
 import * as PATH from "../constants/path";
 import * as ROUTES from "../constants/routes";
 
 export default function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("tvShows");
-  const [slideRows, setSlideRows] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [slideRows, setSlideRows] = useState([]);
+  const search = useRef({});
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,7 +23,7 @@ export default function BrowseContainer({ slides }) {
     setSlideRows(slides[category]);
   }, [slides, category]);
 
-  useEffect(() => {
+  search.current = () => {
     const fuse = new Fuse(slideRows, {
       keys: [
         "data.results.overview",
@@ -38,6 +38,10 @@ export default function BrowseContainer({ slides }) {
     } else {
       setSlideRows(slides[category]);
     }
+  };
+
+  useEffect(() => {
+    search.current();
   }, [searchTerm]);
 
   return (
@@ -59,9 +63,7 @@ export default function BrowseContainer({ slides }) {
                 <Header.TextLink
                   to="/tv-shows"
                   active={category === "tvShows" ? true : false}
-                  onClick={() => {
-                    setCategory("tvShows");
-                  }}
+                  onClick={() => setCategory("tvShows")}
                 >
                   TV Shows
                 </Header.TextLink>
