@@ -11,6 +11,5 @@ export default function usePlayer(id, category) {
 
     getPlayerSrc();
   }, [id, category]);
-
   return playerSrc;
 }

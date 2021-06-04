@@ -73,7 +73,19 @@ export const GlobalStyles = createGlobalStyle`
       max-width: 96rem;
     }
   }
-  
+  .container-fluid{
+    max-width: 79.125rem;
+    width:100%;
+    margin:0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 87.5rem) {
+      max-width: 87.5rem;
+    }
+    @media (min-width: 96rem) {
+      max-width: 96rem;
+    }
+  }
   .flex{
     display: flex;
     justify-content: space-between;
@@ -83,14 +95,17 @@ export const GlobalStyles = createGlobalStyle`
   
   .card-img{
     width: 13rem;
-    height: 10rem;
+    height: 9rem;
     object-fit: cover;
-
+    
     @media (min-width: 35.75rem) {
       width: 15.5rem;
-    }
+      height: 10rem;
 
+    }
+    
     @media (min-width: 48rem) {
+      height: 10rem;
       width: 17rem;
     }
   }
