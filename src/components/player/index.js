@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { FeatureContext } from "../../context/featureContext";
 
 import usePlayer from "../../hooks/use-player";
-import playerFilter from "../../utils/player-filter";
+import playerSrcFilter from "../../utils/player-src-filter";
 
 export const PlayerContext = createContext();
 
@@ -12,7 +12,7 @@ export default function Player({ children, ...restProps }) {
   const [showPlayer, setShowPlayer] = useState(false);
   const { itemFeature, category } = useContext(FeatureContext);
   const { results } = usePlayer(itemFeature.id, category);
-  const src = playerFilter({ results });
+  const src = playerSrcFilter({ results });
 
   return (
     <PlayerContext.Provider value={{ src, showPlayer, setShowPlayer }}>

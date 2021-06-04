@@ -49,7 +49,7 @@ export default function BrowseContainer({ slides }) {
       {loading && <LoadingContainer />}
       {!loading && (
         <>
-          <Header src="joker">
+          <Header src="joker" height="45rem">
             <Header.Nav>
               <Header.Group>
                 <Header.Logo to={ROUTES.HOME}>Movie App</Header.Logo>
@@ -91,13 +91,17 @@ export default function BrowseContainer({ slides }) {
           <Card.Group>
             {slideRows.map((slideItem) => (
               <Card key={slideItem.title} category={slideItem.category}>
-                <div className="container">
+                <div className="container-fluid">
                   <Card.Title>{slideItem.title}</Card.Title>
 
                   <Card.Entities>
                     {slideItem !== undefined &&
                       slideItem?.data[0]?.results?.map((item) => (
-                        <Card.Item key={item.id} item={item}>
+                        <Card.Item
+                          key={item.id}
+                          item={item}
+                          title={item.original_title || item.name}
+                        >
                           <Card.Image
                             src={`${PATH.BASE_POSTER_PATH}${
                               item.backdrop_path || item.poster_path
