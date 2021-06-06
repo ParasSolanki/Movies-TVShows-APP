@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 
 export const Container = styled.a`
+  display: inline-block;
   padding: ${({ padding }) => padding};
 
   font-family: inherit;

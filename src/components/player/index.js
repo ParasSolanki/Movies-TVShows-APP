@@ -1,6 +1,6 @@
+import ReactDOM from "react-dom";
 import { useState, createContext, useContext } from "react";
 import { Container, Overlay, Inner, Button, Close } from "./styles/Player";
-import ReactDOM from "react-dom";
 import { FeatureContext } from "../../context/featureContext";
 
 import usePlayer from "../../hooks/use-player";
@@ -11,9 +11,8 @@ export const PlayerContext = createContext();
 export default function Player({ children, ...restProps }) {
   const [showPlayer, setShowPlayer] = useState(false);
   const { itemFeature, category } = useContext(FeatureContext);
-  const { results } = usePlayer(itemFeature.id, category);
-  const src = playerSrcFilter({ results });
-
+  const results = usePlayer(itemFeature.id, category);
+  const src = playerSrcFilter(results);
   return (
     <PlayerContext.Provider value={{ src, showPlayer, setShowPlayer }}>
       <Container {...restProps}>{children}</Container>

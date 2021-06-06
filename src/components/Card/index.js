@@ -22,6 +22,7 @@ import {
   FeatureDate,
 } from "./styles/Card";
 import * as PATH from "../../constants/path";
+import { formatDate, truncate } from "../../services/functions";
 
 export default function Card({ category, children, ...restProps }) {
   const [showFeature, setShowFeature] = useState(false);
@@ -138,17 +139,4 @@ Card.Feature = function CardFeature({ children, ...restProps }) {
       </FeatureRow>
     </Feature>
   ) : null;
-};
-
-const formatDate = (date) => {
-  const options = { year: "numeric", month: "long", day: "numeric" };
-  const formatedDate = new Date(date).toLocaleDateString("en-US", options);
-  return formatedDate;
-};
-
-const truncate = (overview) => {
-  const CHARACTERS_LIMIT = 210;
-  return overview.length > CHARACTERS_LIMIT
-    ? overview.substring(0, CHARACTERS_LIMIT) + "..."
-    : overview;
 };
