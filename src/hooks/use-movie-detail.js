@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import fetchDeatil from "../services/fetch-detail";
 
-export default function useTVDetail(id) {
+export default function useMovieDetail(id) {
   const [content, setContent] = useState([]);
   useEffect(() => {
-    async function getTVDeatail() {
+    async function getMovieDetail() {
       const result = await fetchDeatil(id, "movie");
       setContent(result);
     }
-    getTVDeatail();
+    getMovieDetail();
   }, [id]);
   return { details: content };
 }

@@ -11,5 +11,6 @@ export default function usePlayer(id, category) {
 
     getPlayerSrc();
   }, [id, category]);
+  console.log(playerSrc);
   return playerSrc;
 }

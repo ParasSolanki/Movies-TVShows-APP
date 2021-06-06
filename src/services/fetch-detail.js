@@ -8,7 +8,7 @@ export default async function fetchDeatil(id, category) {
     BASE_URL = PATH.BASE_TV_URL;
   }
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const URL = `${BASE_URL}/${id}?api_key=${API_KEY}&language=en-US`;
+  const URL = `${BASE_URL}/${id}?api_key=${API_KEY}&language=en-US&append_to_response=videos,content_ratings`;
 
   const data = await fetch(URL);
   const result = await data.json();
