@@ -20,6 +20,8 @@ export const GlobalStyles = createGlobalStyle`
     --bg: #111;
 
     --clr-primary: #f80000;
+    --clr-gray-300: #d1d5db;
+    --clr-gray-500: #6B7280;
 
     --break-point-sm: 35.75rem; 
     --break-point-md: 48rem; 
@@ -36,6 +38,7 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--clr-white);
     font-size: 1rem;
     font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6, p {
@@ -118,5 +121,21 @@ export const GlobalStyles = createGlobalStyle`
     background: rgba(248, 0 , 0, .8);
     color: var(--clr-white)
 
+  }
+
+  ::-webkit-scrollbat-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(248,0,0,0.3);
+    background-color: rgba(40, 40, 40, 1);
+
+  }
+  ::-webkit-scrollbar {
+	  width: 8px;
+	  background-color: rgba(40, 40, 40, 1);
+    border-radius: .4rem;
+
+  }
+  ::-webkit-scrollbar-thumb {
+	  background-color: var(--clr-primary);
+    border-radius: .4rem;
   }
 `;
