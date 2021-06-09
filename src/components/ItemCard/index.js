@@ -12,6 +12,7 @@ import {
   Image,
   SmallText,
   Hr,
+  Link,
   GenreItem,
   GenreList,
   Span,
@@ -19,7 +20,6 @@ import {
   RunTime,
 } from "./styles/itemCard";
 import { formatDate, getTime } from "../../services/functions";
-import Button from "../Button";
 
 export default function ItemCard({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
@@ -59,6 +59,7 @@ ItemCard.Group = function ItemCardGroup({
           <ReactStars
             count={5}
             isHalf={true}
+            size={23}
             value={starValue}
             edit={false}
             emptyIcon={<FaStar />}
@@ -171,14 +172,15 @@ ItemCard.TagLine = function ItemCardTagLine({
 };
 
 ItemCard.Button = function ItemCardButton({
+  href,
   isLoaded,
   children,
   ...restProps
 }) {
   return isLoaded ? (
-    <Button padding=".3rem .8rem" target="_blank" {...restProps}>
+    <Link href={href} target="_blank" {...restProps}>
       {children}
-    </Button>
+    </Link>
   ) : (
     <Skeleton
       width={150}

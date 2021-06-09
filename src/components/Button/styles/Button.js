@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
+import { Link as ReachRouter } from "react-router-dom";
 
-export const Container = styled.a`
+export const Link = styled(ReachRouter)`
   display: inline-block;
   padding: ${({ padding }) => padding};
 

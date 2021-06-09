@@ -16,29 +16,35 @@ export const Group = styled.div`
 
 export const Title = styled.h2`
   font-family: inherit;
-  font-size: 1.7rem;
+  font-size: 1.32rem;
   color: var(--clr-white);
+  margin-bottom: 0.6rem;
 
   @media (min-width: 48rem) {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   @media (min-width: 62rem) {
-    font-size: 1.9rem;
+    font-size: 1.6rem;
   }
 `;
 
 export const Entities = styled.div`
   width: 100%;
-  height: 100%;
-  overflow-x: scroll;
-  box-sizing: content-box;
+  height: 9rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-direction: horizontal;
 
   display: flex;
   align-items: center;
   justify-content: flex-start;
 
   margin-bottom: 2rem;
+
+  @media (min-width: 35.75rem) {
+    height: 10rem;
+  }
 
   &::-webkit-scrollbar {
     display: none;

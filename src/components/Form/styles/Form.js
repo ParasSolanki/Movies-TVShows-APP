@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const Container = styled.form`
-  max-width: 25rem;
+  max-width: 23rem;
   width: 100%;
 
   padding: 1.4rem;
@@ -20,8 +20,8 @@ export const Input = styled.input`
   font-family: inherit;
   font-size: 0.88rem;
   color: var(--clr-white);
-  background: rgba(17, 17, 17, 0.9);
-  border: 2px solid rgba(17, 17, 17, 0.9);
+  background: rgba(17, 17, 17, 0.8);
+  border: 2px solid rgba(17, 17, 17, 0.8);
   border-radius: 0.3rem;
   outline: none;
 
@@ -36,11 +36,12 @@ export const Title = styled.h2`
   color: var(--clr-white);
 `;
 export const Submit = styled.input`
-  padding: 0.4rem 0.9rem;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
 
   cursor: pointer;
 
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: inherit;
   color: var(--clr-black);
   background: var(--clr-white);

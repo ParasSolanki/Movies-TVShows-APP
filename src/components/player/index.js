@@ -5,6 +5,7 @@ import { FeatureContext } from "../../context/featureContext";
 
 import usePlayer from "../../hooks/use-player";
 import playerSrcFilter from "../../utils/player-src-filter";
+import { FaPlay } from "react-icons/fa";
 
 export const PlayerContext = createContext();
 
@@ -59,6 +60,7 @@ Player.Button = function PlayerButton({ children, ...restProps }) {
         setShowPlayer(!showPlayer);
       }}
     >
+      <FaPlay size={11} style={{ marginRight: ".2rem" }} />
       {children}
     </Button>
   );
