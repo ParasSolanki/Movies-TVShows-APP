@@ -9,7 +9,7 @@ export default function HeaderContainer({ children, ...restProps }) {
         <Header.Logo to={ROUTES.HOME}>Movie App</Header.Logo>
         <div>
           <Button
-            href={ROUTES.SIGN_IN}
+            to={ROUTES.SIGN_IN}
             bg="primary"
             color="white"
             padding=".2rem .9rem"
@@ -17,7 +17,7 @@ export default function HeaderContainer({ children, ...restProps }) {
             Sign in
           </Button>
           <Button
-            href={ROUTES.SIGN_UP}
+            to={ROUTES.SIGN_UP}
             bg="white"
             color="primary"
             padding=".2rem .9rem"

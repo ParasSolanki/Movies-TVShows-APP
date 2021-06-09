@@ -1,11 +1,11 @@
 import { SkeletonTheme } from "react-loading-skeleton";
 import { Header, ItemCard, Player } from "../components";
+import FooterContainer from "./footer";
 import * as PATH from "../constants/path";
 import * as ROUTES from "../constants/routes";
 
 export default function ItemContainer({ data, children, ...restProps }) {
   const isLoaded = data.length !== 0;
-  console.log(data);
 
   return (
     <SkeletonTheme color="#222" highlightColor="#444">
@@ -43,7 +43,7 @@ export default function ItemContainer({ data, children, ...restProps }) {
               </ItemCard.TagLine>
             )}
             {data.homepage && (
-              <ItemCard.Button isLoaded={isLoaded} href={`${data?.homepage}`}>
+              <ItemCard.Button isLoaded={isLoaded} href={data.homepage}>
                 View Home Page
               </ItemCard.Button>
             )}
@@ -51,13 +51,16 @@ export default function ItemContainer({ data, children, ...restProps }) {
               <ItemCard.Button
                 isLoaded={isLoaded}
                 href={`https://www.imdb.com/title/${data?.imdb_id}`}
+                bg="primary"
+                color="white"
               >
-                View On IMDB
+                View On IMDb
               </ItemCard.Button>
             )}
           </ItemCard.Body>
         </ItemCard>
       </Header>
+      <FooterContainer />
     </SkeletonTheme>
   );
 }
