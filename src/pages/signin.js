@@ -8,10 +8,10 @@ export default function SignIn() {
         <Form method="POST">
           <Form.Title>Sign In</Form.Title>
           <Form.Control>
-            <Form.Input type="email" placeholder="Enter your email" />
+            <Form.Input type="email" placeholder="johndoe@gmail.com" required />
           </Form.Control>
           <Form.Control>
-            <Form.Input type="password" placeholder="Enter your password" />
+            <Form.Input type="password" placeholder="••••••••" required />
           </Form.Control>
           <Form.Submit value="Sign In" type="submit" />
         </Form>

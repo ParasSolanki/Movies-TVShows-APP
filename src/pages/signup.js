@@ -8,10 +8,10 @@ export default function SignUp() {
         <Form method="POST">
           <Form.Title>Sign Up</Form.Title>
           <Form.Control>
-            <Form.Input type="email" placeholder="Enter your email" />
+            <Form.Input type="email" placeholder="johndoe@gmail.com" required />
           </Form.Control>
           <Form.Control>
-            <Form.Input type="password" placeholder="Enter your password" />
+            <Form.Input type="password" placeholder="••••••••" required />
           </Form.Control>
           <Form.Submit value="Sign Up" type="submit" />
         </Form>
