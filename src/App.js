@@ -1,7 +1,14 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
-import LoadingContainer from "./containers/loading";
+
+import TopBarProgress from "react-topbar-progress-indicator";
+
+TopBarProgress.config({
+  barColors: {
+    0: "#f80000",
+  },
+});
 
 const Home = lazy(() => import("./pages/home"));
 const Browse = lazy(() => import("./pages/browse"));
@@ -14,7 +21,7 @@ const NotFound = lazy(() => import("./pages/notfound"));
 export default function App() {
   return (
     <Router>
-      <Suspense fallback={<LoadingContainer />}>
+      <Suspense fallback={<TopBarProgress />}>
         <Switch>
           <Route path={ROUTES.HOME} exact component={Home} />
           <Route path={ROUTES.BROWSE} exact component={Browse} />
